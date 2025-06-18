@@ -1,0 +1,25 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content';
+import Markdown from '@astrojs/markdown-remark/components/Markdown.astro';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map((post) => ({
+        params: { slug: post.slug }
+    }));
+}
+
+const { slug } = Astro.params;
+const post = await getEntryBySlug('blog', slug);
+
+if (!post) {
+    throw new Error(`Post not found for slug: ${slug}`);
+}
+---
+
+<h1>{post.data.title}</h1>
+<p>{post.data.pubDate} - by {post.data.author}</p>
+<hr />
+<article>
+    {post.body}
+</article>

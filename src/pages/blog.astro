@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+console.log(posts);
+---
+
+<h1>My Blog</h1>
+
+{posts.length === 0 && <p>No posts found.</p>}
+
+<ul>
+    {
+        posts.map((post) => (
+            <li>
+                <a href={`/blog/${post.slug}/`}>{post.data.title}</a> - {post.data.pubDate}
+            </li>
+        ))
+    }
+</ul>
