@@ -7,10 +7,10 @@ export async function GET() {
   return rss({
     title: "Josue’s Blog",
     description: "Latest posts on problem solving and strategy",
-    site: "https://josue-blog.netlify.app", // your deployed URL
+    site: "https://josue-blog.netlify.app",
     items: posts.map(post => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      pubDate: new Date(post.data.pubDate),
       link: `/blog/${post.slug}/`,
     })),
   });
