@@ -10,7 +10,7 @@ filename="/home/josubuntu/projects/blog/src/content/blog/$slug.md"
 # Generate date
 date=$(date +%F)
 
-# Frontmatter
+# Frontmatter without readingTime
 cat > "$filename" <<EOL
 ---
 title: "$title"
@@ -18,6 +18,7 @@ description: ""
 pubDate: "$date"
 author: "Josue"
 tags: []
+slug: "$slug"
 ---
 Write your content here.
 EOL

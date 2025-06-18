@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-first-post.md",
+                "file": "second-post.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "my-first-post"
+              "title": "second-post"
             }
           }
         ]
@@ -170,8 +170,13 @@
   },
   "active": "c5321a8bb375215e",
   "lastOpenFiles": [
-    "hello-astro.md",
+    "thrid-post.md",
+    "test-post.md.tmp",
+    "second-post.md.tmp",
+    "hello-astro.md.tmp",
+    "test-post.md",
+    "second-post.md",
     "my-first-post.md",
-    "test-post.md"
+    "hello-astro.md"
   ]
 }
