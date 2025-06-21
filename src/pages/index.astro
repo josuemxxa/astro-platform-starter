@@ -1,21 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Josue's Blog">
+    <section class="text-center py-12 px-6 bg-white rounded-2xl shadow-lg max-w-3xl mx-auto">
+        <img src="/assets/chip-banner.jpg" alt="Chip Visual" class="rounded-xl mb-6 w-full max-h-80 object-cover" />
+        <h1 class="text-4xl font-bold text-blue-900 mb-4">Welcome to Josue's Blog</h1>
+        <p class="text-gray-600 text-lg mb-6">Writing about tech, design, and experiments in digital craftsmanship.</p>
+        <div class="flex justify-center gap-4">
+            <a href="/blog" class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold px-6 py-2 rounded-full shadow hover:from-blue-500"
+                >BLOG</a
+            >
+            <a href="#" class="bg-gradient-to-r from-blue-500 to-blue-900 text-white font-semibold px-6 py-2 rounded-full shadow hover:from-blue-600">POST</a>
+            <a href="#" class="bg-gradient-to-r from-blue-900 to-blue-950 text-white font-semibold px-6 py-2 rounded-full shadow hover:from-blue-800">IMG</a>
+        </div>
+    </section>
 </Layout>

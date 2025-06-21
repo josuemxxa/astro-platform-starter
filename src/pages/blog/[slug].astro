@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntryBySlug } from 'astro:content';
-import Markdown from '@astrojs/markdown-remark/components/Markdown.astro';
+import { Content } from 'astro/components';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
@@ -11,15 +12,28 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const post = await getEntryBySlug('blog', slug);
-
-if (!post) {
-    throw new Error(`Post not found for slug: ${slug}`);
-}
+if (!post) throw new Error(`Post not found: ${slug}`);
 ---
 
-<h1>{post.data.title}</h1>
-<p>{post.data.pubDate} - by {post.data.author}</p>
-<hr />
-<article>
-    {post.body}
-</article>
+<Layout title={post.data.title}>
+    <article class="prose prose-invert max-w-3xl mx-auto py-10 px-4">
+        <h1 class="text-4xl font-bold">{post.data.title}</h1>
+        <p class="text-sm text-gray-400 mb-2">{post.data.pubDate} · by {post.data.author}</p>
+
+        {
+            post.data.tags?.length && (
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {post.data.tags.map((tag) => (
+                        <span class="px-2 py-1 text-sm rounded-full bg-blue-900 text-white">#{tag}</span>
+                    ))}
+                </div>
+            )
+        }
+
+        <Content content={post} />
+
+        <div class="mt-10">
+            <a href="/blog" class="text-blue-400 hover:underline">← Back to Blog</a>
+        </div>
+    </article>
+</Layout>

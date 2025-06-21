@@ -3,28 +3,25 @@ import Logo from '../components/Logo.astro';
 
 const navItems = [
     { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
+    { linkText: 'Blog', href: '/blog' }
+    // Add more links like About or Contact if needed later
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
+<nav class="flex items-center justify-between pt-6 pb-6 sm:pt-10 sm:pb-10 border-b border-gray-700">
+    <a href="/" class="flex items-center gap-2 text-xl font-bold">
         <Logo />
+        <span class="hidden sm:inline">Josue's Blog</span>
     </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    <ul class="flex gap-4 text-sm sm:text-base">
+        {
+            navItems.map((item) => (
+                <li>
+                    <a href={item.href} class="hover:underline text-white">
+                        {item.linkText}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
 </nav>
